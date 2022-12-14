@@ -10,7 +10,18 @@ import java.util.Optional;
 
 @SpringBootApplication
 public class ConverterDollarsToRubles {
+    public static void main(String[] args) {
+        SpringApplication.run(ConverterDollarsToRubles.class, args);
+    }
 
+    @RestController
+    public class ConverterController {
+
+        @GetMapping({"/converter","/converter/{countDollars}"})
+        public String hello(@PathVariable Optional<Double> countDollars) {
+            return String.format("%10.4f rubles ", countDollars.orElse(0d)*63.80);
+        }
+    }
 
 
 }
