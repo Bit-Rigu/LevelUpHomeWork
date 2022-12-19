@@ -67,12 +67,30 @@ public class EmployeeRunner {
         System.out.println("-------------------");
         System.out.println("Генерация множества работников, рассортированных по убыванию их стажа работы");
         Set<Employee> set = new TreeSet<>();
-        for(int i = 0; i < 100 + random.nextInt(1000); i++) {
+        for(int i = 0; i < 100 + random.nextInt(2000); i++) {
             set.add(generateEmployee());
         }
         System.out.println("-------------------");
         System.out.println("Упорядоченное множество работников");
         Employee.printEmployee(set);
-
+        System.out.println("-------------------");
+        System.out.println("Генерация второго множества работников");
+        Set<Employee> setAnother = new TreeSet<>();
+        for(int i = 0; i < 100 + random.nextInt(2000); i++) {
+            setAnother.add(generateEmployee());
+        }
+        System.out.println("-------------------");
+        System.out.println("Первое упорядоченное множество работников");
+        Employee.printEmployee(set);
+        System.out.println("-------------------");
+        System.out.println("Второе упорядоченное множество работников");
+        Employee.printEmployee(setAnother);
+        System.out.println("-------------------");
+        System.out.println("Объединение двух множеств");
+        Employee.printEmployee(Employee.union(set, setAnother));
+        System.out.println("-------------------");
+        System.out.println("Пересечение двух множеств");
+        Employee.printEmployee(Employee.intersect(set, setAnother));
+        System.out.println("-------------------");
     }
 }
