@@ -1,8 +1,7 @@
 package bit.rigu.homework.lesson2;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.sql.SQLOutput;
+import java.util.*;
 
 public class EmployeeRunner {
 
@@ -22,11 +21,11 @@ public class EmployeeRunner {
                                                 "Красноглазова", "Пугачева", "Фоменко", "Бутусова", "Рукавицина",
                                                 "Кирпичева", "Тэтчер", "Портман", "Грей", "Громова"};
     static String[] patronymicMale= new String[] {"Андреевич", "Михайлович", "Лазаревич", "Дмитриевич", "Егорович",
-                                                "Петрович", "Адамович", "Кириллович", "Николаевич", "Джонович",
-                                                "Федерович", "Цикаевич", "Гансович", "Викторович", "Иванович"};
-    static String[] patronymicFemale= new String[] {"Крестьяновичнова", "Стрелковична", "Луковична", "Дмитриевна", "Хазаровна",
-                                                "Петровична", "Иосифна", "Михайловна", "Григорьевна", "Сиддовна",
-                                                "Джиммовна", "Лотаровна", "Рисковна", "Фомична", "Ивановна"};
+                                                "Петрович", "Адамович", "Кириллович", "Николаевич", "Владимирович",
+                                                "Федерович", "Маркович", "Владиславович", "Викторович", "Иванович"};
+    static String[] patronymicFemale= new String[] {"Марковна", "Петровна", "Лазаревна", "Дмитриевна", "Борисовна",
+                                                "Павловна", "Иосифовна", "Михайловна", "Григорьевна", "Сергеевна",
+                                                "Александровна", "Чингизовна", "Олеговна", "Фоминична", "Ивановна"};
 
         // Метод случайным образом определяет пол генерируемого работника
 
@@ -48,17 +47,32 @@ public class EmployeeRunner {
 
         Random random = new Random();
         List<Employee> list = new ArrayList<>();
-        // Генерация списка работников
+        System.out.println("Генерация списка работников");
         for(int i = 0; i < 100 + random.nextInt(1000); i++) {
             list.add(generateEmployee());
         }
 
-        // Вывод списка всех работников
+        System.out.println("Список всех работников");
         System.out.println(list);
 
         int requireAgeWork = random.nextInt(30);
         System.out.println("-------------------");
         System.out.println("Список работников с рабочим стажем равным " + requireAgeWork + " годам\n");
-        Employee.printEmployee(list, requireAgeWork);
+        Employee.printEmployeeWithDefinedWorkAge(list, requireAgeWork);
+        System.out.println("-------------------");
+
+        System.out.println("Список работников после удаления работников," +
+                " стоящих на нечетном месте, при обходе списка с конца.");
+        System.out.println(Employee.deleteEmployeesOnTheOddNumber(list));
+        System.out.println("-------------------");
+        System.out.println("Генерация множества работников, рассортированных по убыванию их стажа работы");
+        Set<Employee> set = new TreeSet<>();
+        for(int i = 0; i < 100 + random.nextInt(1000); i++) {
+            set.add(generateEmployee());
+        }
+        System.out.println("-------------------");
+        System.out.println("Упорядоченное множество работников");
+        Employee.printEmployee(set);
+
     }
 }
