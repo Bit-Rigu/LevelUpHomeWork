@@ -5,41 +5,41 @@ import java.util.*;
 
 public class EmployeeRunner {
 
-                // Предварительные данные для случайной генерации имен работников
-                // для мужских и женских работников созданы отдельные массивы для согласования окончаний
+    // Предварительные данные для случайной генерации имен работников
+    // для мужских и женских работников созданы отдельные массивы для согласования окончаний
 
-    static String[] firstNameMale= new String[] {"Сергей", "Кирилл", "Василий", "Дмитрий", "Борис",
-                                                "Себастьян", "Адам", "Михаил", "Григорий", "Жерар",
-                                                "Клайд", "Энколпий", "Ганс", "Петр", "Персей"};
-    static String[] firstNameFemale= new String[] {"Анна", "Елизавета", "Жозефина", "Екатерина", "Александра",
-                                                "Юдифь", "Ксения", "Ада", "Алена", "Мишель",
-                                                "Зигги", "Джульета", "Беатриче", "Фекла", "Светлана"};
-    static String[] surNameMale= new String[] {"Пушкин", "Достоевский", "Грин", "Чайковский", "Грибоедов",
-                                                "Миллер", "Поддубный", "Лермонтов", "Бродский", "Гейм",
-                                                "Блок", "Брюсов", "Стругацкий", "Ноздрев", "Греческий"};
-    static String[] surNameFemale= new String[] {"Гончарова", "Собчак", "Борисова", "Шульман", "Бит-Ригу",
-                                                "Красноглазова", "Пугачева", "Фоменко", "Бутусова", "Рукавицина",
-                                                "Кирпичева", "Тэтчер", "Портман", "Грей", "Громова"};
-    static String[] patronymicMale= new String[] {"Андреевич", "Михайлович", "Лазаревич", "Дмитриевич", "Егорович",
-                                                "Петрович", "Адамович", "Кириллович", "Николаевич", "Владимирович",
-                                                "Федерович", "Маркович", "Владиславович", "Викторович", "Иванович"};
-    static String[] patronymicFemale= new String[] {"Марковна", "Петровна", "Лазаревна", "Дмитриевна", "Борисовна",
-                                                "Павловна", "Иосифовна", "Михайловна", "Григорьевна", "Сергеевна",
-                                                "Александровна", "Чингизовна", "Олеговна", "Фоминична", "Ивановна"};
+    static String[] firstNameMale = new String[]{"Сергей", "Кирилл", "Василий", "Дмитрий", "Борис",
+            "Себастьян", "Адам", "Михаил", "Григорий", "Жерар",
+            "Клайд", "Энколпий", "Ганс", "Петр", "Персей"};
+    static String[] firstNameFemale = new String[]{"Анна", "Елизавета", "Жозефина", "Екатерина", "Александра",
+            "Юдифь", "Ксения", "Ада", "Алена", "Мишель",
+            "Зигги", "Джульета", "Беатриче", "Фекла", "Светлана"};
+    static String[] surNameMale = new String[]{"Пушкин", "Достоевский", "Грин", "Чайковский", "Грибоедов",
+            "Миллер", "Поддубный", "Лермонтов", "Бродский", "Гейм",
+            "Блок", "Брюсов", "Стругацкий", "Ноздрев", "Греческий"};
+    static String[] surNameFemale = new String[]{"Гончарова", "Собчак", "Борисова", "Шульман", "Бит-Ригу",
+            "Красноглазова", "Пугачева", "Фоменко", "Бутусова", "Рукавицина",
+            "Кирпичева", "Тэтчер", "Портман", "Грей", "Громова"};
+    static String[] patronymicMale = new String[]{"Андреевич", "Михайлович", "Лазаревич", "Дмитриевич", "Егорович",
+            "Петрович", "Адамович", "Кириллович", "Николаевич", "Владимирович",
+            "Федерович", "Маркович", "Владиславович", "Викторович", "Иванович"};
+    static String[] patronymicFemale = new String[]{"Марковна", "Петровна", "Лазаревна", "Дмитриевна", "Борисовна",
+            "Павловна", "Иосифовна", "Михайловна", "Григорьевна", "Сергеевна",
+            "Александровна", "Чингизовна", "Олеговна", "Фоминична", "Ивановна"};
 
-        // Метод случайным образом определяет пол генерируемого работника
+    // Метод случайным образом определяет пол генерируемого работника
 
     static Employee generateEmployee() {
         Random random = new Random();
-        if(random.nextDouble() > 0.5)
+        if (random.nextDouble() > 0.5)
             return new Employee(firstNameMale[random.nextInt(firstNameMale.length - 1)],
                     surNameMale[random.nextInt(surNameMale.length - 1)],
                     patronymicMale[random.nextInt(patronymicMale.length - 1)],
                     random.nextInt(30));
-        else return  new Employee(firstNameFemale[random.nextInt(firstNameFemale.length - 1)],
-                    surNameFemale[random.nextInt(surNameFemale.length - 1)],
-                    patronymicFemale[random.nextInt(patronymicFemale.length - 1)],
-                    random.nextInt(30));
+        else return new Employee(firstNameFemale[random.nextInt(firstNameFemale.length - 1)],
+                surNameFemale[random.nextInt(surNameFemale.length - 1)],
+                patronymicFemale[random.nextInt(patronymicFemale.length - 1)],
+                random.nextInt(30));
 
     }
 
@@ -48,7 +48,7 @@ public class EmployeeRunner {
         Random random = new Random();
         List<Employee> list = new ArrayList<>();
         System.out.println("Генерация списка работников");
-        for(int i = 0; i < 100 + random.nextInt(1000); i++) {
+        for (int i = 0; i < 100 + random.nextInt(1000); i++) {
             list.add(generateEmployee());
         }
 
@@ -67,7 +67,7 @@ public class EmployeeRunner {
         System.out.println("-------------------");
         System.out.println("Генерация множества работников, рассортированных по убыванию их стажа работы");
         Set<Employee> set = new TreeSet<>();
-        for(int i = 0; i < 100 + random.nextInt(2000); i++) {
+        for (int i = 0; i < 100 + random.nextInt(2000); i++) {
             set.add(generateEmployee());
         }
         System.out.println("-------------------");
@@ -76,7 +76,7 @@ public class EmployeeRunner {
         System.out.println("-------------------");
         System.out.println("Генерация второго множества работников");
         Set<Employee> setAnother = new TreeSet<>();
-        for(int i = 0; i < 100 + random.nextInt(2000); i++) {
+        for (int i = 0; i < 100 + random.nextInt(2000); i++) {
             setAnother.add(generateEmployee());
         }
         System.out.println("-------------------");

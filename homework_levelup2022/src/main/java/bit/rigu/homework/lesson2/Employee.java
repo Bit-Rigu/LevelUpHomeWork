@@ -23,16 +23,16 @@ public class Employee implements Comparable<Employee> {
         return getSurName() + " " + getFirstName() + " " + getPatronymic() + " " +getWorkAge() + "\n";
     }
 
-    static void printEmployee(Collection<Employee> employees) {
+    public static void printEmployee(Collection<Employee> employees) {
         employees.stream().forEach(System.out::print);
     }
 
-    static void printEmployeeWithDefinedWorkAge(Collection<Employee> employees, int workAge) {
-        employees.stream().filter(employee -> employee.getWorkAge() == workAge)
+    public static void printEmployeeWithDefinedWorkAge(Collection<Employee> employees, int workAge) {
+        employees.stream().filter(employee -> employee.getWorkAge() >= workAge)
                             .forEach(System.out::print);
     }
 
-    static List<Employee> deleteEmployeesOnTheOddNumber(List<Employee> list) {
+    public static List<Employee> deleteEmployeesOnTheOddNumber(List<Employee> list) {
         int count = 0;
         for(ListIterator<Employee> iterator = list.listIterator(list.size()); iterator.hasPrevious(); ) {
             iterator.previous();
@@ -56,14 +56,8 @@ public class Employee implements Comparable<Employee> {
         return set;
     }
     public static Set<Employee> intersect(Set<Employee> set1, Set<Employee> set2) {
-        Set<Employee> set = new TreeSet<>();
-        for(Employee employee1: set1) {
-            for(Employee employee2: set2) {
-                if (employee1.equals(employee2)) {
-                    set.add(employee1);
-                }
-            }
-        }
+        Set<Employee> set = new TreeSet<>(set1);
+        set.retainAll(set2);
         return set;
     }
 
