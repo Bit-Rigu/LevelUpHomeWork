@@ -23,9 +23,9 @@ public class StreamRunner {
                 .limit(1000)
                 .filter(e -> e % 2 == 1)
                 .sum();
-        System.out.println("Сумма нечетных элементов потока " + sumOfOdd);
+        System.out.printf("Сумма нечетных элементов потока %d\n", sumOfOdd);
 
-       Map<Integer, Integer> map = random.ints()
+        Map<Integer, Integer> map = random.ints()
                 .limit(1000)
                 .boxed()
                 .collect(Collectors.toMap( Function.identity(),
@@ -38,7 +38,6 @@ public class StreamRunner {
                                 return sum;},
                         (previous, next) -> previous));
         System.out.println("Карта, в которой ключ - случайное число, а значение ключа" +
-                "есть сумма его цифр:");
-        System.out.println(map);
+                "есть сумма его цифр:\n" + map);
     }
 }
