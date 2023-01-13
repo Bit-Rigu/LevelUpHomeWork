@@ -1,0 +1,13 @@
+FahrenheitToCelsius 50.2 10.111
+FahrenheitToCelsius -97.5 -71.944
+FahrenheitToKelvin 15.0 263.706
+FahrenheitToKelvin -136.5 179.539
+CelsiusToFahrenheit 0.2 32.36
+CelsiusToFahrenheit -47.8 -54.04
+CelsiusToKelvin -273.15 0
+CelsiusToKelvin 0 273.15
+KelvinToCelsius 18.8 -254.35
+KelvinToCelsius 102.7 -170.45
+KelvinToFahrenheit 199.9 -99.85
+KelvinToFahrenheit 333.3 140.27
+

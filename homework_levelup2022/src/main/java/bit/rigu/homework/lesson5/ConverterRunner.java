@@ -2,21 +2,57 @@ package bit.rigu.homework.lesson5;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class ConverterRunner {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-        ConverterTemperature converter = context.getBean(ConverterTemperature.class);
-        File file = new File("src/main/java/bit/rigu/homework/lesson5/resources/DataForTesting.txt");
-        try(Scanner scanner = new Scanner(file)){
+        CelsiusToFahrenheitConverter celsiusToFahrenheitConverter =
+               context.getBean(CelsiusToFahrenheitConverter.class);
+        CelsiusToKelvinConverter celsiusToKelvinConverter =
+                context.getBean(CelsiusToKelvinConverter.class);
+        FahrenheitToCelsiusConverter fahrenheitToCelsiusConverter =
+                context.getBean(FahrenheitToCelsiusConverter.class);
+        FahrenheitToKelvinConverter fahrenheitToKelvinConverter =
+                context.getBean(FahrenheitToKelvinConverter.class);
+        KelvinToFahrenheitConverter kelvinToFahrenheitConverter =
+                context.getBean(KelvinToFahrenheitConverter.class);
+        KelvinToCelsiusConverter kelvinToCelsiusConverter =
+                context.getBean(KelvinToCelsiusConverter.class);
+        InputStream is = celsiusToFahrenheitConverter.getClass().getResourceAsStream("/DataForTesting.txt");
+        try(Scanner scanner = new Scanner(is)){
             while(scanner.hasNext()) {
                 String[] arr = scanner.nextLine().split("\s");
-                System.out.printf("%.3f  =  %s\n", converter.convertTo(Double.parseDouble(arr[2]), arr[0], arr[1]), arr[3]);
+                System.out.printf("%.3f  =  %s\n",
+                        switch(arr[0]) {
+                            case "FahrenheitToCelsius"  ->
+                                fahrenheitToCelsiusConverter.convert(
+                                        Double.parseDouble(arr[1])
+                                );
+                            case "FahrenheitToKelvin"   ->
+                                fahrenheitToKelvinConverter.convert(
+                                        Double.parseDouble(arr[1])
+                                );
+                            case "CelsiusToFahrenheit"  ->
+                                celsiusToFahrenheitConverter.convert(
+                                        Double.parseDouble(arr[1])
+                                );
+                            case "CelsiusToKelvin"      ->
+                                celsiusToKelvinConverter.convert(
+                                        Double.parseDouble(arr[1])
+                                );
+                            case "KelvinToCelsius"      ->
+                                kelvinToCelsiusConverter.convert(
+                                        Double.parseDouble(arr[1])
+                                );
+                            case "KelvinToFahrenheit"    ->
+                                kelvinToFahrenheitConverter.convert(
+                                        Double.parseDouble(arr[1])
+                                );
+                            default     ->  Double.parseDouble("0");
+                        }, arr[2]);
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
 
     }
