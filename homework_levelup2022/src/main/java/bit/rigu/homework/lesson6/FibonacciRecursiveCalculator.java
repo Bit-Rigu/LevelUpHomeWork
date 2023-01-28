@@ -18,8 +18,8 @@ public class FibonacciRecursiveCalculator implements FibonacciCalculator{
     }
 
     private BigInteger functionFibonacci(int n) {
-        if (n == 0) return numFibZero;
-        else if (n == 1) return numFibOne;
+        if (n == 0) return BigInteger.ZERO;
+        else if (n == 1) return BigInteger.ONE;
         else return functionFibonacci(n - 1).add(functionFibonacci(n - 2));
     }
 

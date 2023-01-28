@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Scanner;
 
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 @Service
 public class ConsoleUserInterface implements UserInterface {
 
@@ -26,7 +26,9 @@ public class ConsoleUserInterface implements UserInterface {
             Scanner sc = new Scanner(System.in);
             str = sc.next();
             isNumber = str.matches("\\d*");
-            if(str.equals("exit")) break;
+            if(str.equals("exit")) {
+                break;
+            }
         } while(!isNumber);
         if(isNumber) data.setNumberOfFibonacci(Integer.parseInt(str));
         else flagExit = true;

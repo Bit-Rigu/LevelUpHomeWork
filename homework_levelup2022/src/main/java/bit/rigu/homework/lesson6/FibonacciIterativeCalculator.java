@@ -15,8 +15,8 @@ public class FibonacciIterativeCalculator implements FibonacciCalculator{
     @Override
     public BigInteger calculateFibonacciNumberByNumber(int number) {
         return functionFibonacci(number,
-                numFibOne,
-                numFibZero);
+                BigInteger.ONE,
+                BigInteger.ZERO);
     }
 
     private BigInteger functionFibonacci(int n,

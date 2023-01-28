@@ -1,24 +1,19 @@
 package bit.rigu.homework.lesson6;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Repository;
 
 
 @NoArgsConstructor
+@Setter
+@Getter
 @Repository
 @ConditionalOnProperty(name = "application.cash.enabled", havingValue = "false")
 public class FibonacciDataFieldRepository implements FibonacciData{
 
     int numberOfFibonacci;
 
-    @Override
-    public void setNumberOfFibonacci(int numberOfFibonacci) {
-        this.numberOfFibonacci = numberOfFibonacci;
-    }
-
-    @Override
-    public int getNumberOfFibonacci() {
-        return numberOfFibonacci;
-    }
 }
