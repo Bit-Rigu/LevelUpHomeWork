@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: homework
+server:
+  port: 8081
+application:
+  cash:
+    enabled: "true"
+  type:
+    calculator: "iterative"
+
