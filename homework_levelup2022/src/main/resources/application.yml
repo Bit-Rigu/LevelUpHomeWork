@@ -1,6 +1,11 @@
 spring:
   application:
     name: homework
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fields_awardees_db
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
 server:
   port: 8081
 application:
@@ -8,4 +13,5 @@ application:
     enabled: "true"
   type:
     calculator: "iterative"
+
 
