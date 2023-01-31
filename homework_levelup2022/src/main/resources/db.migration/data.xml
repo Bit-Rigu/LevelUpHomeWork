@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Bit-Rigu Dmitry" id="Populate-table-university">
+        <preConditions>
+            <sqlCheck expectedResult="0"><![CDATA[
+                select count(*)
+                from university
+                where id = 1
+                ]]></sqlCheck>
+        </preConditions>
+        <sqlFile relativeToChangelogFile="true" path="university_data.sql"/>
+    </changeSet>
+
+    <changeSet author="Bit-Rigu Dmitry" id="Populate-table-mathematician">
+        <preConditions>
+            <sqlCheck expectedResult="0"><![CDATA[
+                select count(*)
+                from mathematician
+                where math_id = 1
+                ]]></sqlCheck>
+        </preConditions>
+        <sqlFile relativeToChangelogFile="true" path="mathematician_data.sql"/>
+    </changeSet>
+
+</databaseChangeLog>
