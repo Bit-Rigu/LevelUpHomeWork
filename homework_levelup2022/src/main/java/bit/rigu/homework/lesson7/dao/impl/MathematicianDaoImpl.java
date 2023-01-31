@@ -24,9 +24,9 @@ public class MathematicianDaoImpl implements MathematicianDao {
         this.jdbcOperations = jdbcOperations;
         this.mathRowMapper = (rs, row) -> {
             final Mathematician math = new Mathematician();
-            math.setId(rs.getInt("math_id"));
+            math.setId(rs.wasNull() ? null : rs.getInt("math_id"));
             math.setName(rs.getString("name"));
-            math.setYearOfAward(rs.getInt("year_of_award"));
+            math.setYearOfAward(rs.wasNull() ? null : rs.getInt("year_of_award"));
             math.setNationality(rs.getString("nationality"));
             math.setResearchArea(rs.getString("research_area"));
             University university = universityDao.getById(
@@ -45,7 +45,7 @@ public class MathematicianDaoImpl implements MathematicianDao {
     public int create(Mathematician math) {
         final String sql = "INSERT INTO mathematician" +
                 "(math_id, name, year_of_award, " +
-                "nationality, research_area, university_id    )" +
+                "nationality, research_area, university_id)" +
                 "values (:id, :name, :yearOfAward, " +
                 ":nationality, :researchArea, :index)";
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();

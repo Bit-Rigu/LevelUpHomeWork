@@ -1,0 +1,48 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Bit-Rigu Dmitry" id="Create-table-university">
+        <preConditions>
+            <not>
+                <tableExists tableName="UNIVERSITY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="UNIVERSITY">
+            <column name="ID" type="INTEGER">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(200)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name = "COUNTRY" type="VARCHAR(50)"/>
+            <column name = "YEAR_OF_ESTABLISHMENT" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Bit-Rigu Dmitry" id="Create-table-mathematician">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="MATHEMATICIAN"/>
+            </not>
+        </preConditions>
+        <createTable tableName="MATHEMATICIAN">
+            <column name="MATH_ID" type="INTEGER">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="YEAR_OF_AWARD" type="INTEGER"/>
+            <column name="NATIONALITY" type="VARCHAR(100)"/>
+            <column name="RESEARCH_AREA" type="VARCHAR"/>
+            <column name="UNIVERSITY_ID" type="INTEGER">
+                <constraints foreignKeyName="FK_MATH_UNIVERSITY"
+                references="UNIVERSITY(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
