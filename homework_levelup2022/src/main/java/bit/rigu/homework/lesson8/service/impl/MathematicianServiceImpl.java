@@ -4,6 +4,7 @@ import bit.rigu.homework.lesson8.entity.Mathematician;
 import bit.rigu.homework.lesson8.repository.MathematicianRepository;
 import bit.rigu.homework.lesson8.service.MathematicianService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +29,6 @@ public class MathematicianServiceImpl implements MathematicianService {
 
     @Override
     public List<Mathematician> findByYearOfAward(Integer year) {
-
         return mathematicianRepository.findByYearOfAward(year);
     }
 
@@ -47,12 +47,9 @@ public class MathematicianServiceImpl implements MathematicianService {
 
     @Override
     @Transactional
+    @Modifying
     public void deletedByNationality(String nationality) {
-        mathematicianRepository.findByNationality(nationality).stream()
-                .forEach(e -> mathematicianRepository.delete(e));
+        mathematicianRepository.deleteByNationality(nationality);
     }
 
-    private List<Mathematician> findByNationality(String nationality) {
-        return mathematicianRepository.findByNationality(nationality);
-    }
 }

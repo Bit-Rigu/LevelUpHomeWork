@@ -1,8 +1,11 @@
 package bit.rigu.homework.lesson8.entity;
 
 
-import lombok.*;
-
+import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
