@@ -1,8 +1,8 @@
-package bit.rigu.homework.lesson8.service.impl;
+package bit.rigu.homework.lesson9.service.impl;
 
-import bit.rigu.homework.lesson8.entity.University;
-import bit.rigu.homework.lesson8.repository.UniversityRepository;
-import bit.rigu.homework.lesson8.service.UniversityService;
+import bit.rigu.homework.lesson9.entity.University;
+import bit.rigu.homework.lesson9.repository.UniversityRepository;
+import bit.rigu.homework.lesson9.service.UniversityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

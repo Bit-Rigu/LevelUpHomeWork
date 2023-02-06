@@ -1,7 +1,8 @@
-package bit.rigu.homework.lesson8.entity;
+package bit.rigu.homework.lesson9.entity;
 
 
 
+import bit.rigu.homework.lesson9.entity.University;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
