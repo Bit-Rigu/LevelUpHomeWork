@@ -3,11 +3,9 @@ package bit.rigu.homework.lesson9.mapper;
 import bit.rigu.homework.lesson9.entity.University;
 import bit.rigu.homework.lesson9.Dto.UniversityDto;
 import org.mapstruct.Mapper;
-
 import java.util.Optional;
 
-
-@Mapper(componentModel = "spring")
+@Mapper
 public interface UniversityMapper {
 
     University toEntity (UniversityDto universityDto);

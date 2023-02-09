@@ -47,7 +47,6 @@ public class MathematicianServiceImpl implements MathematicianService {
 
     @Override
     @Transactional
-    @Modifying
     public void deleteByNationality(String nationality) {
         mathematicianRepository.deleteByNationality(nationality);
     }

@@ -3,10 +3,9 @@ package bit.rigu.homework.lesson9.mapper;
 import bit.rigu.homework.lesson9.entity.Mathematician;
 import bit.rigu.homework.lesson9.Dto.MathematicianDto;
 import org.mapstruct.Mapper;
-
 import java.util.Optional;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface MathematicianMapper {
 
     Mathematician toEntity (MathematicianDto mathDto);
