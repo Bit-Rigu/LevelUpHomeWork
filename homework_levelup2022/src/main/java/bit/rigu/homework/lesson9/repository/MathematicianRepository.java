@@ -1,8 +1,8 @@
-package bit.rigu.homework.lesson8.repository;
+package bit.rigu.homework.lesson9.repository;
 
 
 
-import bit.rigu.homework.lesson8.entity.Mathematician;
+import bit.rigu.homework.lesson9.entity.Mathematician;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

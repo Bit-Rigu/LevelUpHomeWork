@@ -1,6 +1,6 @@
-package bit.rigu.homework.lesson8.service;
+package bit.rigu.homework.lesson9.service;
 
-import bit.rigu.homework.lesson8.entity.University;
+import bit.rigu.homework.lesson9.entity.University;
 
 import java.util.List;
 import java.util.Optional;

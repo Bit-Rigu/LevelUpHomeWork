@@ -1,8 +1,8 @@
-package bit.rigu.homework.lesson8.service.impl;
+package bit.rigu.homework.lesson9.service.impl;
 
-import bit.rigu.homework.lesson8.entity.Mathematician;
-import bit.rigu.homework.lesson8.repository.MathematicianRepository;
-import bit.rigu.homework.lesson8.service.MathematicianService;
+import bit.rigu.homework.lesson9.entity.Mathematician;
+import bit.rigu.homework.lesson9.repository.MathematicianRepository;
+import bit.rigu.homework.lesson9.service.MathematicianService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -47,12 +47,13 @@ public class MathematicianServiceImpl implements MathematicianService {
 
     @Override
     @Transactional
-    @Modifying
     public void deleteByNationality(String nationality) {
         mathematicianRepository.deleteByNationality(nationality);
     }
 
     @Override
+    @Transactional
+    @Modifying
     public void deleteById(int id) {
         mathematicianRepository.deleteById(id);
     }

@@ -45,7 +45,7 @@ public class TestRunner {
         System.out.println(universityService.findByName("New university"));
         System.out.println("***************************************");
         System.out.println("Deleting mathematician with nationality new");
-        mathService.deletedByNationality("new nationality");
+        mathService.deleteByNationality("new nationality");
         System.out.println("***************************************");
         System.out.println("Deleting university with id = 21");
         universityService.deleteById(21);
